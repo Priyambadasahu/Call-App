@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Call Application</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>Simple Call Application</h1>
+      <input type="text" id="phoneNumber" placeholder="Enter phone number" />
+      <button onclick="makeCall()">Call</button>
+      <div id="result"></div>
+      <!-- Placeholder for call result -->
+    </div>
+
+    <script>
+      function makeCall() {
+        var phoneNumber = document.getElementById("phoneNumber").value;
+
+        // Regular expression to check if the phone number is exactly 10 digits
+        var phonePattern = /^\d{10}$/;
+
+        if (phonePattern.test(phoneNumber)) {
+          // Simulate a call action
+          document.getElementById("result").innerHTML =
+            "Calling to <strong>" + phoneNumber + "</strong>...";
+          console.log("Making a call to:", phoneNumber);
+        } else {
+          document.getElementById("result").innerHTML =
+            "<span class='fail'>Please enter a valid 10-digit phone number.</span>";
+        }
+      }
+    </script>
+  </body>
+</html>
